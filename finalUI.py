@@ -40,7 +40,7 @@ def save_settings():
 # Restore default settings
 def restore_defaults():
     defaults = {
-        "H": 60,
+        "H": 50,
         "T": 37.0,
         "P": 25,
         "L": 35,
@@ -73,7 +73,7 @@ try:
         settings = json.load(f)
 except FileNotFoundError:
     settings = {
-        "H": 60,
+        "H": 50,
         "T": 37.0,
         "P": 25,
         "L": 35,
@@ -150,7 +150,7 @@ def create_meter(master, label, max_val, init_val, unit, style, row, column, pre
         return callback
 
     meter.amountusedvar.trace_add("write", enforce_min(meter.amountusedvar, prefix, {
-            "H": 60,
+            "H": 30,
             "P": 25,
             "L": 25
     }.get(prefix, 0)))
@@ -176,7 +176,7 @@ label = ttk.Label(window, text="Control Panel", font=("Calibri", 36, "bold"), bo
 label.grid(row=0, column=0, columnspan=4, pady=30)
 
 # Create meters and toggles
-meter1, toggle1 = create_meter(window, "Humidity", 100, settings["H"], "%", "warning", 1, 0, "H", settings["toggles"].get("H", "On"))
+meter1, toggle1 = create_meter(window, "Humidity", 70, settings["H"], "%", "warning", 1, 0, "H", settings["toggles"].get("H", "On"))
 meter3, toggle3 = create_meter(window, "Phototherapy", 100, settings["P"], "%", "primary", 1, 2, "P", settings["toggles"].get("P", "On"))
 meter4, toggle4 = create_meter(window, "Light", 100, settings["L"], "%", "light", 1, 3, "L", settings["toggles"].get("L", "On"))
 
@@ -193,23 +193,23 @@ temperature_var = ttk.DoubleVar(value=settings.get("T", 37.0))
 
 temp_slider = ttk.Scale(
     temp_frame,
-    from_=37.0,
+    from_=35.0,
     to=38.0,
     variable=temperature_var,
     orient="horizontal",
     length=400,
     bootstyle="danger",
-    command=lambda val: send_serial_command("T", max(37.0, round(float(val), 2)))
+    command=lambda val: send_serial_command("T", max(35.0, round(float(val), 2)))
 )
 temp_slider.pack(pady=(0, 10))
 
 # Display the temperature value
-temperature_display = ttk.Label(temp_frame, text=f"{temperature_var.get():.2f}°C", font=("Calibri", 18), bootstyle="danger")
+temperature_display = ttk.Label(temp_frame, text=f"{temperature_var.get():.1f}°C", font=("Calibri", 18), bootstyle="danger")
 temperature_display.pack(pady=(0, 10))
 
 # Update label when slider changes
 def update_temp_label(*args):
-    temperature_display.config(text=f"{temperature_var.get():.2f}°C")
+    temperature_display.config(text=f"{temperature_var.get():.1f}°C")
 
 temperature_var.trace_add("write", update_temp_label)
 
@@ -220,7 +220,7 @@ class TempToggle(CustomToggle):
             send_serial_command("T", 0)
         else:
             temp_slider.state(["!disabled"])
-            send_serial_command("T", max(37.0, round(temperature_var.get(), 2)))
+            send_serial_command("T", max(35.0, round(temperature_var.get(), 2)))
 
 toggle2 = TempToggle(temp_frame, None, "T", "danger", initial_state=settings["toggles"].get("T", "On"))
 toggle2.pack(pady=(10, 0))
