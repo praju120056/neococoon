@@ -29,7 +29,6 @@ def save_settings():
         "L": meter4.amountusedvar.get(),
         "toggles": {
             "H": toggle1.var.get(),
-            "T": toggle2.var.get(),
             "P": toggle3.var.get(),
             "L": toggle4.var.get()
         }
@@ -44,7 +43,7 @@ def restore_defaults():
         "T": 37.0,
         "P": 25,
         "L": 35,
-        "toggles": {"H": "On", "T": "On", "P": "On", "L": "On"}
+        "toggles": {"H": "On", "P": "On", "L": "On"}
     }
 
     meter1.amountusedvar.set(defaults["H"])
@@ -54,9 +53,6 @@ def restore_defaults():
 
     toggle1.var.set(defaults["toggles"]["H"])
     toggle1.apply_state()
-
-    toggle2.var.set(defaults["toggles"]["T"])
-    toggle2.apply_state()
 
     toggle3.var.set(defaults["toggles"]["P"])
     toggle3.apply_state()
@@ -77,7 +73,7 @@ except FileNotFoundError:
         "T": 37.0,
         "P": 25,
         "L": 35,
-        "toggles": {"H": "On", "T": "On", "P": "On", "L": "On"}
+        "toggles": {"H": "On", "P": "On", "L": "On"}
     }
 
 # Custom toggle button
@@ -213,23 +209,9 @@ def update_temp_label(*args):
 
 temperature_var.trace_add("write", update_temp_label)
 
-class TempToggle(CustomToggle):
-    def apply_state(self):
-        if self.var.get() == "Off":
-            temp_slider.state(["disabled"])
-            send_serial_command("T", 0)
-        else:
-            temp_slider.state(["!disabled"])
-            send_serial_command("T", max(35.0, round(temperature_var.get(), 2)))
-
-toggle2 = TempToggle(temp_frame, None, "T", "danger", initial_state=settings["toggles"].get("T", "On"))
-toggle2.pack(pady=(10, 0))
-
 # Buttons: Save, Restore Defaults, Exit
 button_frame = ttk.Frame(window)
 button_frame.grid(row=4, column=0, columnspan=4, pady=30)
-
-btn_style = {"padding": 20, "ipadx": 30, "ipady": 15}
 
 save_btn = ttk.Button(button_frame, text="Save Settings", bootstyle="success-outline", command=save_settings)
 save_btn.pack(side="left", padx=30, ipadx=30, ipady=15)
@@ -240,8 +222,6 @@ restore_btn.pack(side="left", padx=30, ipadx=30, ipady=15)
 exit_btn = ttk.Button(button_frame, text="Exit to Grafana", bootstyle="danger-outline", command=window.destroy)
 exit_btn.pack(side="left", padx=30, ipadx=30, ipady=15)
 
-
 window.protocol("WM_DELETE_WINDOW", lambda: [save_settings(), ser.close() if ser and ser.is_open else None, window.destroy()])
 
 window.mainloop()
-    
