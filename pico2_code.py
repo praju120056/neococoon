@@ -41,6 +41,7 @@ while True:
                     humidity = int(value)
                     if 60 <= humidity <= 100:
                         print(f"Humidity set to: {humidity}%")
+                        #place humidity control system here
                 except:
                     pass
 
@@ -50,6 +51,7 @@ while True:
                     if 37.0 <= temp <= 38.0:
                         temperature = temp
                         print(f"Temperature set to: {temperature}°C")
+                        #place temperature control system here
                 except:
                     pass
 
