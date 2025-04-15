@@ -3,6 +3,7 @@ from ttkbootstrap.constants import *
 from tkinter import StringVar
 import serial
 import json
+import webbrowser
 
 # Serial setup
 try:
@@ -219,7 +220,10 @@ save_btn.pack(side="left", padx=30, ipadx=30, ipady=15)
 restore_btn = ttk.Button(button_frame, text="Restore Defaults", bootstyle="info-outline", command=restore_defaults)
 restore_btn.pack(side="left", padx=30, ipadx=30, ipady=15)
 
-exit_btn = ttk.Button(button_frame, text="Exit to Grafana", bootstyle="danger-outline", command=window.destroy)
+def open_grafana():
+    webbrowser.open("https://localhost:3000")
+
+exit_btn = ttk.Button(button_frame, text="Exit to Grafana", bootstyle="danger-outline", command=open_grafana)
 exit_btn.pack(side="left", padx=30, ipadx=30, ipady=15)
 
 window.protocol("WM_DELETE_WINDOW", lambda: [save_settings(), ser.close() if ser and ser.is_open else None, window.destroy()])
