@@ -1,2 +1,0 @@
-# neococoon
-UI AND BACKEND
