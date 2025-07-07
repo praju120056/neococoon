@@ -60,7 +60,7 @@ pip install -r requirements.txt
 ### ▶️ Run the Raspberry Pi UI
 
 
-python neococoon_ui.py
+python neo_ui.py
 
 
 ---
