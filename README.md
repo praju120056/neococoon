@@ -18,7 +18,7 @@ A smart, affordable, and remotely monitorable **baby incubator system** designed
 ## 📂 Project Structure
 
 
-├── UI/
+├── UI/  
 │   ├── neococoon_ui.py         # Main GUI code for Raspberry Pi interface  
 │   ├── assets/                 # Icons, images, and GUI assets  
 │   └── requirements.txt        # Python dependencies  
@@ -67,6 +67,7 @@ python neococoon_ui.py
 
 ## 📸 Screenshots
 
+![image](https://github.com/user-attachments/assets/1a2a5ff6-8646-4832-aba0-2f2acda20b37)
 
 
 ---
