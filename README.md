@@ -96,6 +96,7 @@ python neo_ui.py
 - [Raspberry Pi Documentation](https://www.raspberrypi.com/documentation/)
 - [TTKBootstrap Docs](https://ttkbootstrap.readthedocs.io/en/latest/)
 - [Serial Communication with PySerial](https://pyserial.readthedocs.io/en/latest/)
+- https://github.com/sanjanawg/Neo_cucoon (for schematics of pcbs involved)
 
 ---
 
