@@ -46,22 +46,22 @@ Scalable architecture for hospital-grade or home setups
 
 ### Clone the Repository
 
-
+```
 git clone https://github.com/praju120056/neococoon.git  
 cd neococoon  
-
+```
 
 ### Install Dependencies (for UI)
-
+```
 cd UI  
 pip install -r requirements.txt
-
+```
 
 ### Run the Raspberry Pi UI
 
-
+```
 python neo_ui.py
-
+```
 
 ---
 
