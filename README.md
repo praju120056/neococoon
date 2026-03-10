@@ -17,7 +17,7 @@ Scalable architecture for hospital-grade or home setups
 
 ## Project Structure
 
-
+```
 ├── UI/  
 │   ├── neococoon_ui.py         # Main GUI code for Raspberry Pi interface  
 │   ├── assets/                 # Icons, images, and GUI assets  
@@ -29,7 +29,7 @@ Scalable architecture for hospital-grade or home setups
 │   ├── web_dashboard_plan.md   # Planned web dashboard implementation notes  
 ├── README.md                   # Project documentation  
 └── LICENSE  
-
+```
 ---
 
 ## How It Works
