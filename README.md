@@ -1,21 +1,21 @@
 
-# 👶 NeoCocoon: Smart Baby Incubator System
+# NeoCocoon: Smart Baby Incubator System
 
 A smart, affordable, and remotely monitorable **baby incubator system** designed to improve neonatal care accessibility. Built with embedded hardware integration and a web-based monitoring dashboard, NeoCocoon offers real-time vitals tracking and environmental control for premature and at-risk infants.
 
 ---
 
-## 📌 Features
+## Features
 
-✅ Real-time monitoring of **temperature**, **humidity**, **phototherapy**, and **white light levels**  
-✅ User interface built with **Tkinter + TTKBootstrap** for Raspberry Pi touchscreen control  
-✅ Serial communication with onboard sensors and actuators via **Raspberry Pi Pico**  
-✅ Data visualization and control feedback via an integrated web dashboard (planned)  
-✅ Scalable architecture for hospital-grade or home setups  
+Real-time monitoring of **temperature**, **humidity**, **phototherapy**, and **white light levels**  
+User interface built with **Tkinter + TTKBootstrap** for Raspberry Pi touchscreen control  
+Serial communication with onboard sensors and actuators via **Raspberry Pi Pico**  
+Data visualization and control feedback via an integrated web dashboard (planned)  
+Scalable architecture for hospital-grade or home setups  
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 
 ├── UI/  
@@ -32,7 +32,7 @@ A smart, affordable, and remotely monitorable **baby incubator system** designed
 
 ---
 
-## ⚙️ How It Works
+## How It Works
 
 1. **Sensors connected to Raspberry Pi Pico** measure environmental vitals.
 2. Data is transmitted via **serial communication** to the Raspberry Pi.
@@ -42,22 +42,22 @@ A smart, affordable, and remotely monitorable **baby incubator system** designed
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
-### 📥 Clone the Repository
+### Clone the Repository
 
 
 git clone https://github.com/praju120056/neococoon.git  
 cd neococoon  
 
 
-### 🛠️ Install Dependencies (for UI)
+### Install Dependencies (for UI)
 
 cd UI  
 pip install -r requirements.txt
 
 
-### ▶️ Run the Raspberry Pi UI
+### Run the Raspberry Pi UI
 
 
 python neo_ui.py
@@ -65,14 +65,14 @@ python neo_ui.py
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
 ![image](https://github.com/user-attachments/assets/1a2a5ff6-8646-4832-aba0-2f2acda20b37)
 
 
 ---
 
-## 🎯 What I Learned
+## What I Learned
 
 - Serial communication protocols between microcontrollers and Raspberry Pi
 - GUI design using **Tkinter** and **TTKBootstrap**
@@ -82,7 +82,7 @@ python neo_ui.py
 
 ---
 
-## 📌 To-Do (Roadmap)
+## To-Do (Roadmap)
 
 - [ ] Complete web-based monitoring dashboard (React/Flask + Grafana)
 - [ ] Integrate database storage for vitals logging
@@ -91,7 +91,7 @@ python neo_ui.py
 
 ---
 
-## 📚 References
+## References
 
 - [Raspberry Pi Documentation](https://www.raspberrypi.com/documentation/)
 - [TTKBootstrap Docs](https://ttkbootstrap.readthedocs.io/en/latest/)
@@ -100,14 +100,14 @@ python neo_ui.py
 
 ---
 
-## 🧑‍💻 Author
+## Author
 
 **Prajakth N Kumar**  
 [GitHub](https://github.com/praju120056) | [LinkedIn](https://www.linkedin.com/in/prajakth-n-kumar-0092902a6/)
 
 ---
 
-## 📜 License
+## License
 
 This project is licensed under the **MIT License** — free for personal and educational use.
 
