@@ -20,7 +20,7 @@ def send_serial_command(prefix, value):
             ser.write(command.encode())
         except Exception as e:
             print(f"Error sending: {e}")
-
+# made by praju120056
 # Save settings to file
 def save_settings():
     data = {
